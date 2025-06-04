@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Globe, Palette, Smartphone, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle, Globe, Palette, Smartphone, Zap, Monitor, Code, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Layout from '@/components/Layout';
@@ -8,7 +8,7 @@ import Layout from '@/components/Layout';
 const Index = () => {
   const features = [
     {
-      icon: <Globe className="w-8 h-8" />,
+      icon: <Monitor className="w-8 h-8" />,
       title: "Modern Web Design",
       description: "Responsive websites that look great on all devices and drive results for your business."
     },
@@ -41,8 +41,16 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-brand-900 to-brand-800 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-brand-800 text-white">
         <div className="absolute inset-0 bg-hero-gradient opacity-90"></div>
+        
+        {/* Background decorative elements inspired by the logo */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-2xl rotate-12 animate-float"></div>
+          <div className="absolute bottom-20 left-10 w-24 h-24 bg-gradient-to-br from-purple-400/20 to-blue-400/20 rounded-xl rotate-45 animate-float" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-br from-blue-300/10 to-purple-300/10 rounded-lg rotate-45 animate-pulse-soft"></div>
+        </div>
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
@@ -58,13 +66,13 @@ const Index = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">
-                  <Button size="lg" className="bg-white text-brand-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg">
+                  <Button size="lg" className="bg-white text-navy-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg shadow-xl">
                     Let's Build Your Site
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
                 <Link to="/portfolio">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-900 font-semibold px-8 py-3 text-lg">
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-navy-900 font-semibold px-8 py-3 text-lg">
                     View Our Work
                   </Button>
                 </Link>
@@ -72,15 +80,28 @@ const Index = () => {
             </div>
             <div className="animate-float hidden lg:block">
               <div className="relative">
-                <div className="w-full h-96 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl shadow-2xl opacity-20 absolute inset-0 blur-3xl"></div>
-                <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="w-full h-96 bg-gradient-to-br from-blue-500/30 to-purple-600/30 rounded-2xl shadow-2xl absolute inset-0 blur-3xl"></div>
+                <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
                   <div className="space-y-4">
+                    <div className="flex items-center space-x-2 mb-4">
+                      <div className="flex space-x-1">
+                        <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                      </div>
+                    </div>
                     <div className="h-4 bg-white/30 rounded w-3/4"></div>
                     <div className="h-4 bg-white/20 rounded w-1/2"></div>
-                    <div className="h-24 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-lg"></div>
+                    <div className="h-24 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-lg flex items-center justify-center">
+                      <Code className="w-8 h-8 text-white/70" />
+                    </div>
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="h-16 bg-white/20 rounded"></div>
-                      <div className="h-16 bg-white/20 rounded"></div>
+                      <div className="h-16 bg-white/20 rounded flex items-center justify-center">
+                        <Layers className="w-6 h-6 text-white/70" />
+                      </div>
+                      <div className="h-16 bg-white/20 rounded flex items-center justify-center">
+                        <Globe className="w-6 h-6 text-white/70" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -104,10 +125,12 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300 animate-slide-up border-0 shadow-md">
+              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 animate-slide-up border-0 shadow-md hover:scale-105">
                 <CardContent className="p-6">
-                  <div className="text-brand-600 mb-4 flex justify-center">
-                    {feature.icon}
+                  <div className="text-transparent bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text mb-4 flex justify-center">
+                    <div className="text-blue-600">
+                      {feature.icon}
+                    </div>
                   </div>
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
                     {feature.title}
@@ -143,7 +166,7 @@ const Index = () => {
               </div>
               <div className="mt-8">
                 <Link to="/pricing">
-                  <Button size="lg" className="bg-brand-gradient hover:opacity-90 text-white font-semibold">
+                  <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold shadow-lg">
                     View Pricing Plans
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
@@ -151,7 +174,7 @@ const Index = () => {
               </div>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-r from-brand-500 to-purple-600 rounded-2xl p-8 text-white">
+              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white shadow-xl">
                 <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
                 <p className="text-blue-100 mb-6">
                   Join dozens of Dublin 12 businesses who trust us with their online presence.
@@ -177,7 +200,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-brand-gradient text-white">
+      <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">
             Ready to Transform Your Business Online?
@@ -187,13 +210,13 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="bg-white text-brand-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg">
+              <Button size="lg" className="bg-white text-navy-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg shadow-xl">
                 Start Your Project
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
             <Link to="/pricing">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-brand-900 font-semibold px-8 py-3 text-lg">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-navy-900 font-semibold px-8 py-3 text-lg">
                 View Pricing
               </Button>
             </Link>

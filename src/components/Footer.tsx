@@ -9,11 +9,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-brand-gradient rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">D12</span>
-              </div>
-              <span className="text-xl font-bold">D12 Websites</span>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="/lovable-uploads/29945e36-c2fc-4314-92be-40a1ba8250ac.png" 
+                alt="D12 Websites Logo" 
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
               Professional web design services for small businesses in Dublin 12 and beyond. 

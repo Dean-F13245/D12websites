@@ -1,4 +1,3 @@
-
 import { ExternalLink, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,50 +5,9 @@ import { Badge } from '@/components/ui/badge';
 import Layout from '@/components/Layout';
 
 const Portfolio = () => {
-  const projects = [
-    {
-      title: "Dublin Cafe Collective",
-      description: "Modern website for a local coffee shop with online ordering and event booking",
-      image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-      tags: ["Restaurant", "E-commerce", "Booking"],
-      url: "#"
-    },
-    {
-      title: "Emerald Fitness Studio",
-      description: "Responsive website with class scheduling and membership management",
-      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80",
-      tags: ["Fitness", "Booking", "Membership"],
-      url: "#"
-    },
-    {
-      title: "Celtic Construction",
-      description: "Professional construction company website with project portfolio",
-      image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2331&q=80",
-      tags: ["Construction", "Portfolio", "Corporate"],
-      url: "#"
-    },
-    {
-      title: "Dublin Hair Salon",
-      description: "Elegant salon website with appointment booking and service showcase",
-      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2274&q=80",
-      tags: ["Beauty", "Booking", "Gallery"],
-      url: "#"
-    },
-    {
-      title: "Local Accounting Firm",
-      description: "Professional website for tax and accounting services with client portal",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2226&q=80",
-      tags: ["Professional", "Portal", "Finance"],
-      url: "#"
-    },
-    {
-      title: "Dublin Pet Care",
-      description: "Veterinary clinic website with appointment booking and pet health tips",
-      image: "https://images.unsplash.com/photo-1415369629372-26f2fe60c467?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2187&q=80",
-      tags: ["Healthcare", "Booking", "Blog"],
-      url: "#"
-    }
-  ];
+  // This will be replaced with Supabase data fetching
+  const projects = [];
+  const testimonials = [];
 
   const stats = [
     { number: "50+", label: "Websites Delivered" },
@@ -102,49 +60,61 @@ const Portfolio = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-gray-900 hover:bg-gray-100"
-                    >
-                      <Eye className="w-4 h-4 mr-2" />
-                      View Project
-                      <ExternalLink className="w-4 h-4 ml-2" />
-                    </Button>
+          {projects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.map((project, index) => (
+                <Card key={index} className="group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-gray-900 hover:bg-gray-100"
+                      >
+                        <Eye className="w-4 h-4 mr-2" />
+                        View Project
+                        <ExternalLink className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
                   </div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags?.map((tag, tagIndex) => (
+                        <Badge key={tagIndex} variant="secondary" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <div className="text-gray-400 mb-4">
+                <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No Projects Yet</h3>
+              <p className="text-gray-600">Portfolio projects will appear here once added through the admin dashboard.</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section - keep existing code (process steps) */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -204,45 +174,41 @@ const Portfolio = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "D12 Websites transformed our online presence. The new website has increased our bookings by 40% in just three months.",
-                name: "Sarah O'Connor",
-                business: "Dublin Cafe Collective"
-              },
-              {
-                quote: "Professional, reliable, and creative. They understood our vision perfectly and delivered beyond our expectations.",
-                name: "Michael Kelly",
-                business: "Celtic Construction"
-              },
-              {
-                quote: "The best investment we made for our business. Our website looks amazing and brings in new clients every week.",
-                name: "Emma Walsh",
-                business: "Dublin Hair Salon"
-              }
-            ].map((testimonial, index) => (
-              <Card key={index} className="p-6 border-0 shadow-lg">
-                <CardContent className="p-0">
-                  <p className="text-gray-600 mb-4 italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div>
-                    <div className="font-semibold text-gray-900">
-                      {testimonial.name}
+          {testimonials.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <Card key={index} className="p-6 border-0 shadow-lg">
+                  <CardContent className="p-0">
+                    <p className="text-gray-600 mb-4 italic">
+                      "{testimonial.quote}"
+                    </p>
+                    <div>
+                      <div className="font-semibold text-gray-900">
+                        {testimonial.client_name}
+                      </div>
+                      <div className="text-brand-600 text-sm">
+                        {testimonial.business}
+                      </div>
                     </div>
-                    <div className="text-brand-600 text-sm">
-                      {testimonial.business}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16">
+              <div className="text-gray-400 mb-4">
+                <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">No Testimonials Yet</h3>
+              <p className="text-gray-600">Client testimonials will appear here once added through the admin dashboard.</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - keep existing code (call to action) */}
       <section className="py-20 bg-brand-gradient text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">

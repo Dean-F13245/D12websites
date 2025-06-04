@@ -17,22 +17,19 @@ const Footer = () => {
               />
             </div>
             <p className="text-gray-400 mb-4 max-w-md">
-              Professional web design services for small businesses in Dublin 12 and beyond. 
+              Professional web design services for small businesses in Dublin and beyond. 
               We create modern, responsive websites that help your business grow online.
             </p>
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-gray-400">
                 <MapPin size={16} />
-                <span>Dublin 12, Ireland</span>
+                <span>Dublin, Ireland</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-400">
                 <Mail size={16} />
-                <span>hello@d12websites.ie</span>
+                <span>D12websites@gmail.com</span>
               </div>
-              <div className="flex items-center space-x-2 text-gray-400">
-                <Phone size={16} />
-                <span>+353 1 234 5678</span>
-              </div>
+              
             </div>
           </div>
 

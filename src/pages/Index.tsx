@@ -55,14 +55,13 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Professional Websites for 
+                Affordable Websites for 
                 <span className="block bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Dublin 12 Businesses
+                  Local Dublin Businesses
                 </span>
               </h1>
               <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                We create stunning, responsive websites that help small businesses grow online. 
-                From design to hosting, we handle everything so you can focus on your business.
+              I'm a Software Development college student passionate about helping local businesses grow by building modern, affordable websites tailored to their needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">

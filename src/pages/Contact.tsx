@@ -287,20 +287,18 @@ const Contact = () => {
                   Why Choose D12 Websites?
                 </h2>
                 <p className="text-gray-600 mb-6">
-                  We're passionate about helping Dublin 12 businesses succeed online with professional, 
-                  high-performing websites that drive real results.
+                As an independent Software Development student based in Dublin, I understand the challenges small businesses face. I'm not a big agency—I’m a local, just like you—so I treat every project with real care and attention.
                 </p>
 
                 <div className="space-y-4">
                   {[
-                    "Free consultation and project quote",
-                    "Local Dublin 12 based team",
-                    "2-3 week delivery timeline",
-                    "One year free hosting included",
+                    "Free consultation & quote",
+                    "2 week delivery window",
+                    "Unique, modern designs - no using templates",
                     "Mobile-responsive design guaranteed",
                     "Ongoing support and maintenance",
-                    "SEO optimized from day one",
-                    "100% satisfaction guarantee"
+                    "SEO optimized from day one"
+                    
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-brand-600 rounded-full mt-2 flex-shrink-0"></div>

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -19,33 +18,34 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
               src="/lovable-uploads/29945e36-c2fc-4314-92be-40a1ba8250ac.png" 
               alt="D12 Websites Logo" 
-              className="h-10 w-auto"
+              className="h-12 w-auto"
             />
+            <span className="text-lg font-semibold text-gray-800">D12 Websites</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
+                className={`text-base font-medium transition-colors duration-200 px-2 py-1 rounded-md ${
                   isActive(item.path)
-                    ? 'text-brand-600'
-                    : 'text-gray-700 hover:text-brand-600'
+                    ? 'text-brand-600 bg-brand-50'
+                    : 'text-gray-700 hover:text-brand-600 hover:bg-gray-50'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg">
+            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg px-4">
               Get Started
             </Button>
           </div>
@@ -54,7 +54,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-brand-600 transition-colors"
+              className="text-gray-700 hover:text-brand-600 transition-colors p-1 rounded-md hover:bg-gray-50"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -70,7 +70,7 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md ${
                   isActive(item.path)
                     ? 'text-brand-600 bg-brand-50'
                     : 'text-gray-700 hover:text-brand-600 hover:bg-gray-50'

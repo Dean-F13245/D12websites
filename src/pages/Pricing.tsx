@@ -94,9 +94,7 @@ const Pricing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {plans.map((plan, index) => (
-              <Card key={index} className={`relative hover:shadow-xl transition-shadow duration-300 ${
-                plan.popular ? 'border-brand-500 border-2 transform scale-105' : 'border-gray-200'
-              }`}>
+              <Card key={index} className={`relative hover:shadow-xl transition-shadow duration-300 ${plan.popular ? 'border-brand-500 border-2 transform scale-105' : 'border-gray-200'}`}>
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <Badge className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 text-sm font-semibold">
@@ -105,22 +103,22 @@ const Pricing = () => {
                     </Badge>
                   </div>
                 )}
-                <CardHeader className="text-center pb-4">
-                  <CardTitle className="text-2xl font-bold text-gray-900 mb-2">
+                <CardHeader className="text-center pb-4 space-y-2">
+                  <CardTitle className="text-2xl font-bold text-gray-900">
                     {plan.name}
                   </CardTitle>
                   <div className="mb-4">
                     <span className="text-4xl font-bold text-brand-600">{plan.price}</span>
                     <span className="text-gray-500 ml-1">starting price</span>
                     {plan.monthlyFee && (
-                      <div className="mt-2 text-sm text-gray-600">
+                      <div className="mt-1 text-sm text-gray-600">
                         + {plan.monthlyFee} ongoing
                       </div>
                     )}
                   </div>
-                  <p className="text-gray-600">{plan.description}</p>
+                  <p className="text-gray-600 text-sm">{plan.description}</p>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-6 pt-0">
                   <ul className="space-y-3 mb-6">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start space-x-3">
@@ -129,7 +127,7 @@ const Pricing = () => {
                         ) : (
                           <X className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                         )}
-                        <span className={`text-gray-700 ${!feature.included ? 'text-gray-500' : ''}`}>
+                        <span className={`text-gray-700 ${!feature.included ? 'text-gray-500 line-through' : ''}`}>
                           {feature.text}
                         </span>
                       </li>
@@ -142,7 +140,7 @@ const Pricing = () => {
                   )}
                   <Link to="/contact">
                     <Button 
-                      className={`w-full font-semibold ${
+                      className={`w-full font-semibold px-8 py-3 text-lg transition-all duration-300 hover:-translate-y-0.5 ${
                         plan.popular 
                           ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 text-white' 
                           : 'bg-gray-900 hover:bg-gray-800 text-white'
@@ -150,7 +148,7 @@ const Pricing = () => {
                       size="lg"
                     >
                       {plan.cta}
-                      <ArrowRight className="ml-2 w-4 h-4" />
+                      <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
                   </Link>
                 </CardContent>
@@ -172,11 +170,11 @@ const Pricing = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {addOns.map((addon, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <Card key={index} className="text-center hover:shadow-lg transition-shadow duration-300 shadow-md">
+                <CardContent className="p-6 space-y-3">
+                  <h3 className="text-lg font-semibold text-gray-900">
                     {addon.name}
                   </h3>
                   <div className="text-2xl font-bold text-brand-600 mb-3">
@@ -203,7 +201,7 @@ const Pricing = () => {
           </p>
           <Link to="/contact">
             <Button 
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 text-white font-semibold px-8 py-3"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 text-white font-semibold px-8 py-3 transition-all duration-300 hover:-translate-y-0.5"
               size="lg"
             >
               Contact Us
@@ -214,7 +212,7 @@ const Pricing = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -276,7 +274,7 @@ const Pricing = () => {
             Contact us today for a free consultation and custom quote for your project.
           </p>
           <Link to="/contact">
-            <Button size="lg" className="bg-white text-brand-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg">
+            <Button size="lg" className="bg-white text-brand-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg transition-all duration-300 hover:-translate-y-0.5">
               Get Your Free Quote
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>

@@ -1,0 +1,50 @@
+{
+  "name": "D12 Websites",
+  "short_name": "D12Web",
+  "description": "Professional web design services for Dublin 12 businesses",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a365d",
+  "icons": [
+    {
+      "src": "/assets/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "categories": ["business", "web design", "technology"],
+  "screenshots": [
+    {
+      "src": "/assets/images/screenshot-home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Homepage of D12 Websites"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Get a Quote",
+      "short_name": "Quote",
+      "description": "Request a free website design quote",
+      "url": "/contact",
+      "icons": [{ "src": "/assets/images/quote-icon.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "View Portfolio",
+      "short_name": "Portfolio",
+      "description": "Browse our website design portfolio",
+      "url": "/portfolio",
+      "icons": [{ "src": "/assets/images/portfolio-icon.png", "sizes": "192x192" }]
+    }
+  ]
+} 

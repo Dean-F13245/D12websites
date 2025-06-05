@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Layout from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 
 const Pricing = () => {
   const plans = [
@@ -79,8 +80,75 @@ const Pricing = () => {
     { question: "How can I pay?", answer: "We accept payment via Card (Stripe) and Revolut." }
   ];
 
+  // Pricing structured data
+  const pricingStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'PriceSpecification',
+    name: 'D12 Websites Pricing Plans',
+    description: 'Affordable website design packages for Dublin 12 businesses. Choose from Basic, Standard, and Premium plans with transparent pricing.',
+    url: 'https://d12websites.com/pricing',
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Basic Website Package',
+        description: 'Professional website design for small businesses',
+        price: '299',
+        priceCurrency: 'EUR',
+        priceValidUntil: '2024-12-31',
+        availability: 'https://schema.org/InStock',
+        includes: [
+          'Responsive Website Design',
+          'Basic SEO Setup',
+          'Contact Form',
+          'Social Media Integration',
+          'Basic Hosting'
+        ]
+      },
+      {
+        '@type': 'Offer',
+        name: 'Standard Website Package',
+        description: 'Complete website solution with SEO and maintenance',
+        price: '599',
+        priceCurrency: 'EUR',
+        priceValidUntil: '2024-12-31',
+        availability: 'https://schema.org/InStock',
+        includes: [
+          'Everything in Basic Package',
+          'Advanced SEO Optimization',
+          'Content Management System',
+          'Monthly Maintenance',
+          'Premium Hosting',
+          'Google Analytics Setup'
+        ]
+      },
+      {
+        '@type': 'Offer',
+        name: 'Premium Website Package',
+        description: 'Full-service website solution with custom features',
+        price: '999',
+        priceCurrency: 'EUR',
+        priceValidUntil: '2024-12-31',
+        availability: 'https://schema.org/InStock',
+        includes: [
+          'Everything in Standard Package',
+          'Custom Features Development',
+          'E-commerce Integration',
+          'Priority Support',
+          'Advanced Analytics',
+          'Performance Optimization'
+        ]
+      }
+    ]
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Website Design Pricing - D12 Websites | Affordable Packages for Dublin 12 Businesses"
+        description="View our transparent website design pricing packages. Choose from Basic, Standard, and Premium plans tailored for Dublin 12 businesses. All packages include hosting and support."
+        canonical="/pricing"
+        structuredData={pricingStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-brand-900 to-brand-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

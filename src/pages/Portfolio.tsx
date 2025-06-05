@@ -8,6 +8,7 @@ import Layout from '@/components/Layout';
 import { supabase } from '@/lib/supabase';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import GalleryViewer from '@/components/GalleryViewer'; // Assuming you have or will create this component
+import { SEO } from '@/components/SEO';
 
 const Portfolio = () => {
   const [projects, setProjects] = useState<any[]>([]);
@@ -55,8 +56,40 @@ const Portfolio = () => {
     { number: "24/7", label: "Support Available" }
   ];
 
+  // Portfolio structured data
+  const portfolioStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'D12 Websites Portfolio - Web Design Projects in Dublin 12',
+    description: 'View our portfolio of professional website designs for Dublin 12 businesses. See examples of our custom web design, branding, and development work.',
+    url: 'https://d12websites.com/portfolio',
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          item: {
+            '@type': 'CreativeWork',
+            name: 'Modern Restaurant Website',
+            description: 'A responsive website design for a local Dublin 12 restaurant',
+            image: 'https://d12websites.com/portfolio/restaurant.jpg',
+            url: 'https://d12websites.com/portfolio/restaurant'
+          }
+        },
+        // Add more portfolio items as needed
+      ]
+    }
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Portfolio - D12 Websites | Web Design Projects in Dublin 12"
+        description="Explore our portfolio of professional website designs for Dublin 12 businesses. See examples of our custom web design, branding, and development work."
+        canonical="/portfolio"
+        structuredData={portfolioStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-brand-900 to-brand-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

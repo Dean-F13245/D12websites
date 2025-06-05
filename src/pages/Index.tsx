@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle, Globe, Palette, Smartphone, Zap, Monitor, Code
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Layout from '@/components/Layout';
+import { SEO } from '@/components/SEO';
 
 const Index = () => {
   const features = [
@@ -37,8 +38,58 @@ const Index = () => {
     "24/7 customer support"
   ];
 
+  // Structured data for the homepage
+  const homepageStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'D12 Websites',
+    url: 'https://d12websites.com',
+    description: 'Professional web design services for small businesses in Dublin 12, Ireland. Custom websites, logos, hosting, and SEO.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://d12websites.com/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string'
+    },
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'EUR',
+      lowPrice: '299',
+      highPrice: '999',
+      offerCount: '3',
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Basic Website Package',
+          description: 'Professional website design for small businesses',
+          price: '299',
+          priceCurrency: 'EUR'
+        },
+        {
+          '@type': 'Offer',
+          name: 'Standard Website Package',
+          description: 'Complete website solution with SEO and maintenance',
+          price: '599',
+          priceCurrency: 'EUR'
+        },
+        {
+          '@type': 'Offer',
+          name: 'Premium Website Package',
+          description: 'Full-service website solution with custom features',
+          price: '999',
+          priceCurrency: 'EUR'
+        }
+      ]
+    }
+  };
+
   return (
     <Layout>
+      <SEO
+        title="D12 Websites - Professional Web Design for Dublin 12 Businesses"
+        description="Professional web design services for small businesses in Dublin 12, Ireland. Get a modern, mobile-friendly website with SEO optimization and hosting included."
+        canonical="/"
+        structuredData={homepageStructuredData}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-brand-900 to-brand-800 text-white py-24 lg:py-32">
         {/* Background decorative elements - simplified for cleaner look */}

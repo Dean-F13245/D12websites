@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import Layout from '@/components/Layout';
 import { supabase } from '@/lib/supabase';
+import { SEO } from '@/components/SEO';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -193,8 +194,51 @@ const Contact = () => {
     }
   ];
 
+  // Contact page structured data
+  const contactStructuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact D12 Websites - Get a Free Quote',
+    description: 'Contact D12 Websites for a free consultation and quote on your website design project. We serve businesses in Dublin 12 and surrounding areas.',
+    url: 'https://d12websites.com/contact',
+    mainEntity: {
+      '@type': 'Organization',
+      name: 'D12 Websites',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Dublin 12',
+        addressRegion: 'Dublin',
+        addressCountry: 'IE'
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        email: 'contact@d12websites.com',
+        availableLanguage: ['English']
+      }
+    },
+    potentialAction: {
+      '@type': 'ContactAction',
+      name: 'Request a Quote',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://d12websites.com/contact',
+        actionPlatform: [
+          'https://schema.org/DesktopWebPlatform',
+          'https://schema.org/MobileWebPlatform'
+        ]
+      }
+    }
+  };
+
   return (
     <Layout>
+      <SEO
+        title="Contact Us - D12 Websites | Get a Free Website Design Quote"
+        description="Contact D12 Websites for a free consultation and quote on your website design project. We serve businesses in Dublin 12 and surrounding areas."
+        canonical="/contact"
+        structuredData={contactStructuredData}
+      />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-brand-900 to-brand-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

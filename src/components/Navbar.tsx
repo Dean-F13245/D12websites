@@ -59,12 +59,6 @@ const Navbar = () => {
                 </Button>
               </Link>
             )}
-            {/* Contact Button (Desktop) */}
-            <Link to="/contact">
-              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg px-4">
-                Contact
-              </Button>
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -102,14 +96,6 @@ const Navbar = () => {
                  Admin Dashboard
                </Link>
              )}
-            {/* Contact Button (Mobile) */}
-             <div className="px-3 py-2">
-              <Link to="/contact" onClick={() => setIsOpen(false)}>
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg">
-                  Contact
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       )}

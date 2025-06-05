@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { profile, loading } = useAuth();
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -15,6 +17,8 @@ const Navbar = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  const isAdmin = !loading && profile && profile.role === 'admin';
 
   return (
     <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
@@ -45,6 +49,13 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            {isAdmin && (
+              <Link to="/admin">
+                <Button variant="ghost" size="sm" className="text-gray-700 hover:text-brand-600 hover:bg-gray-50">
+                  Admin Dashboard
+                </Button>
+              </Link>
+            )}
             <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg px-4">
               Get Started
             </Button>
@@ -80,6 +91,11 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            {isAdmin && (
+               <Link to="/admin" className="block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md text-gray-700 hover:text-brand-600 hover:bg-gray-50" onClick={() => setIsOpen(false)}>
+                 Admin Dashboard
+               </Link>
+             )}
             <div className="px-3 py-2">
               <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg">
                 Get Started

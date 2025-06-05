@@ -15,14 +15,12 @@ const Pricing = () => {
         { text: "Fully designed and built website", included: true },
         { text: "3 essential pages included:", included: true },
         { text: "• Homepage / About Us", included: true },
-        { text: "• Portfolio or Products Page", included: true },
+        { text: "• Products or Services Page", included: true },
         { text: "• Contact Page", included: true },
         { text: "No ongoing fees", included: true },
         { text: "Custom domain registration", included: false },
         { text: "Website hosting included", included: false },
-        { text: "Additional features available", included: true },
-        { text: "Additional pages available", included: true },
-        { text: "Custom integrations available", included: true }
+       
       ],
       note: "You must purchase and manage your own domain and hosting separately",
       popular: false,
@@ -37,14 +35,12 @@ const Pricing = () => {
         { text: "Fully designed and built website", included: true },
         { text: "3 essential pages included:", included: true },
         { text: "• Homepage / About Us", included: true },
-        { text: "• Portfolio or Products Page", included: true },
+        { text: "• Products or Services Page", included: true },
         { text: "• Contact Page", included: true },
         { text: "Custom domain registration", included: true },
         { text: "Website hosting included", included: true },
         { text: "Ongoing support and maintenance", included: true },
-        { text: "Additional features available", included: true },
-        { text: "Additional pages available", included: true },
-        { text: "Custom integrations available", included: true }
+        
       ],
       note: "Includes €20/month upkeep fee for hosting, updates, and support",
       popular: true,
@@ -55,24 +51,32 @@ const Pricing = () => {
   const addOns = [
     {
       name: "Monthly Maintenance",
-      price: "€99/month",
+      price: "Free",
       description: "Keep your website updated and secure"
     },
     {
       name: "Additional Pages",
-      price: "€75/page",
+      price: "€30/page",
       description: "Add more pages to your existing website"
     },
     {
-      name: "E-commerce Setup",
-      price: "€299",
-      description: "Add online store functionality"
+      name: "Logo Design",
+      price: "€30",
+      description: "Create a professional logo for your business"
     },
     {
-      name: "Blog Setup",
-      price: "€199",
-      description: "Professional blog with CMS"
+      name: "Social Media Integration",
+      price: "€60",
+      description: "Integrate your social media accounts into your website"
     }
+  ];
+
+  const faqs = [
+    { question: "What's included in the hosting?", answer: "Hosting is completely managed by us and includes SSL certificate, daily backups, 99.9% uptime guarantee, and technical support." },
+    { question: "How long does it take to build my website?", answer: "Most websites are completed within 1-2 weeks from the initial consultation, depending on the complexity and your feedback response time." },
+    { question: "Can I update my website myself?", answer: "Yes! Once the website is completed, you will be provided with the entire source code." },
+    { question: "Do you provide ongoing support?", answer: "All plans include support, and we offer monthly maintenance for ongoing updates, security, and technical support." },
+    { question: "How can I pay?", answer: "We accept payment via Card (Stripe) and Revolut." }
   ];
 
   return (
@@ -212,7 +216,7 @@ const Pricing = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -221,45 +225,12 @@ const Pricing = () => {
           </div>
           
           <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                What's included in the hosting?
-              </h3>
-              <p className="text-gray-600">
-                Your first year of hosting is completely free and includes SSL certificate, daily backups, 
-                99.9% uptime guarantee, and technical support.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                How long does it take to build my website?
-              </h3>
-              <p className="text-gray-600">
-                Most websites are completed within 2-3 weeks from the initial consultation, 
-                depending on the complexity and your feedback response time.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Can I update my website myself?
-              </h3>
-              <p className="text-gray-600">
-                Yes! We provide training and documentation so you can make basic updates. 
-                For complex changes, our monthly maintenance service is available.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Do you provide ongoing support?
-              </h3>
-              <p className="text-gray-600">
-                All plans include initial support, and we offer monthly maintenance packages 
-                for ongoing updates, security, and technical support.
-              </p>
-            </div>
+            {faqs.map((faq, index) => (
+              <div key={index}>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

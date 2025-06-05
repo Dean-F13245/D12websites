@@ -32,7 +32,7 @@ const Index = () => {
     "Professional website design",
     "Mobile-responsive layout",
     "SEO optimization included",
-    "Free hosting for first year",
+    "Hassle Free Hosting",
     "Monthly maintenance & updates",
     "24/7 customer support"
   ];
@@ -183,7 +183,7 @@ const Index = () => {
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-2.5 h-2.5 bg-green-400 rounded-full"></div>
-                    <span>Launch in 2-3 weeks</span>
+                    <span>Launch in 1-2 weeks</span>
                   </div>
                 </div>
               </div>

@@ -38,31 +38,96 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
+    // Prevent default form submission to handle state updates and potentially show messages
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission - replace with actual Supabase integration
-    try {
-      const { data, error } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            company: formData.company,
-            business_type: formData.businessType, // Map to database column name
-            package_type: formData.packageType, // Map to database column name
-            custom_request: formData.customRequest, // Map to database column name
-            message: formData.message,
-          }
-        ]);
 
-      if (error) {
-        console.error('Error submitting form:', error);
-        toast.error("Something went wrong submitting your form. Please try again.");
-      } else {
+    // The form submission will be handled by the 'action' attribute directly.
+    // We can optionally add a client-side success message here, but the form
+    // submission service might handle redirects or provide a response.
+    // For now, we'll just simulate success after a brief delay.
+
+    // In a real implementation with a form service (like Formspree), you'd typically
+    // rely on their handling of the POST request and potential redirect/response.
+    // If using their AJAX features, you'd put the fetch logic here targeting their URL.
+
+    // For direct form action submission, setIsSubmitting might be less useful
+    // unless you handle an AJAX submission.
+    // Let's assume for simplicity we are using the action attribute for submission
+    // and will reset form/show message after submission (e.g., via redirect or AJAX response).
+
+    // Reset form after submission is handled by the browser/service
+    // This part might need adjustment based on how the form service handles response.
+    // For now, we'll just reset locally after a short delay.
+    setTimeout(() => {
+        toast.success("Thank you! Your message has been sent.");
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            company: '',
+            businessType: '',
+            packageType: '',
+            customRequest: '',
+            message: ''
+        });
+        setShowCustomRequest(false);
+        setIsSubmitting(false);
+    }, 1000); // Simulate a brief delay before resetting form and showing success
+
+    // The actual POST to the form service endpoint happens because of the form's action attribute
+    // after e.preventDefault() is NOT called, or if you use their AJAX method.
+    // Since we *are* calling e.preventDefault(), we would need to manually trigger the fetch
+    // to the form service's AJAX endpoint here if they provide one.
+    // If the form service relies purely on the action attribute, remove e.preventDefault().
+    // Let's remove e.preventDefault() and the manual state reset/toast here for simplest action attribute usage.
+    // The form service will handle the post and likely a redirect or thank you page.
+  };
+
+  // Let's revert handleSubmit to preventDefault but use a fetch to a form service endpoint
+  // as this allows for client-side feedback (toast) and form reset without a page reload.
+  // We will need to replace the fetch URL with the actual form service endpoint.
+
+  const handleFormServiceSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formServiceEndpoint = 'https://formspree.io/f/xovwvoqr'; // <<< Make sure this is your Formspree URL
+
+    try {
+      // Send data to Formspree
+      const response = await fetch(formServiceEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Formspree submission was successful
         toast.success("Thank you! We'll get back to you within 24 hours.");
+
+        // Also save to Supabase
+        const { error: supabaseError } = await supabase
+          .from('contacts')
+          .insert([
+            {
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              company: formData.company,
+              message: formData.message,
+              status: 'new'
+            }
+          ]);
+
+        if (supabaseError) {
+          console.error('Error saving to database:', supabaseError);
+          // Optionally show a less critical error or log it if saving fails but email sent
+        }
+
         setFormData({
           name: '',
           email: '',
@@ -73,10 +138,15 @@ const Contact = () => {
           customRequest: '',
           message: ''
         });
-        setShowCustomRequest(false); // Hide custom request field on success
+        setShowCustomRequest(false);
+      } else {
+        // Handle errors from the form service
+        const errorData = await response.json();
+        console.error('Form service submission error:', response.status, errorData);
+        toast.error(errorData.error || "Something went wrong submitting your form. Please try again.");
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Fetch error during form submission:', error);
       toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -111,11 +181,11 @@ const Contact = () => {
     },
     {
       question: "How long does it take to build a website?",
-      answer: "Most websites are completed within 2-3 weeks from the initial consultation, depending on the scope and your feedback response time."
+      answer: "Most websites are completed within 1-2 weeks from the initial consultation, depending on the scope and your feedback response time."
     },
     {
       question: "Do you provide hosting and domain services?",
-      answer: "The Full-Service Package includes one year of free hosting and SSL certificate. We can also help you with domain registration and setup for both packages."
+      answer: "The Full-Service Package includes hosting and SSL certificate. We can also take care of domain registration for you."
     },
     {
       question: "Will my website work on mobile devices?",
@@ -180,7 +250,7 @@ const Contact = () => {
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleFormServiceSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <Label htmlFor="name">Full Name *</Label>

@@ -24,14 +24,17 @@ const Navbar = () => {
     <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Logo and Title/Slogan */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
               src="/images/logo.png"
               alt="D12 Websites Logo" 
               className="h-12 w-auto"
             />
-            <span className="text-lg font-semibold text-gray-800">D12 Websites</span>
+            <div className="flex flex-col">
+              <span className="text-lg font-semibold text-gray-800">D12 Websites</span>
+              <span className="text-xs text-gray-600 mt-0.5">Affordable yet quality</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,9 +59,12 @@ const Navbar = () => {
                 </Button>
               </Link>
             )}
-            <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg px-4">
-              Get Started
-            </Button>
+            {/* Contact Button (Desktop) */}
+            <Link to="/contact">
+              <Button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg px-4">
+                Contact
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -96,10 +102,13 @@ const Navbar = () => {
                  Admin Dashboard
                </Link>
              )}
-            <div className="px-3 py-2">
-              <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg">
-                Get Started
-              </Button>
+            {/* Contact Button (Mobile) */}
+             <div className="px-3 py-2">
+              <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium shadow-lg">
+                  Contact
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

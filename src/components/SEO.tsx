@@ -13,7 +13,7 @@ interface SEOProps {
 
 const defaultTitle = 'D12 Websites - Professional Web Design for Dublin 12 Businesses';
 const defaultDescription = 'Professional web design services for small businesses in Dublin 12, Ireland. Custom websites, logos, hosting, and SEO. Get your free quote today!';
-const defaultOgImage = 'https://lovable.dev/opengraph-image-p98pqg.png';
+const defaultOgImage = 'https://d12websites.com/opengraph-image.png';
 const defaultOgType = 'website';
 const defaultTwitterCard = 'summary_large_image';
 
@@ -36,7 +36,7 @@ export function SEO({
     '@type': 'Organization',
     name: 'D12 Websites',
     url: siteUrl,
-    logo: `${siteUrl}/lovable-uploads/29945e36-c2fc-4314-92be-40a1ba8250ac.png`,
+    logo: `${siteUrl}/assets/images/logo.png`,
     description: defaultDescription,
     address: {
       '@type': 'PostalAddress',

@@ -23,7 +23,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img 
-              src="/lovable-uploads/29945e36-c2fc-4314-92be-40a1ba8250ac.png" 
+              src="/assets/images/logo.png"
               alt="D12 Websites Logo" 
               className="h-12 w-auto"
             />

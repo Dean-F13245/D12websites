@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
+// import { componentTagger } from "lovable-tagger"; // Removed
 import { compression } from 'vite-plugin-compression2';
 import { visualizer } from 'rollup-plugin-visualizer';
 
@@ -35,14 +35,14 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    // mode === 'development' &&
+    // componentTagger(), // Removed
     compression({
-      algorithm: 'gzip',
+      algorithms: ['gzip'],
       exclude: [/\.(br)$/, /\.(gz)$/],
     }),
     compression({
-      algorithm: 'brotliCompress',
+      algorithms: ['brotliCompress'],
       exclude: [/\.(br)$/, /\.(gz)$/],
     }),
     visualizer({

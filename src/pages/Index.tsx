@@ -117,7 +117,7 @@ const Index = () => {
                   </Button>
                 </Link>
                 <Link to="/portfolio">
-                  <Button size="lg" variant="outline" className="border-white text-blue-600 hover:bg-white hover:text-gray-900 font-semibold px-8 py-3 text-lg transition-all duration-300 hover:-translate-y-0.5">
+                  <Button size="lg" variant="outline" className="border-white !text-blue-600 hover:bg-white hover:text-gray-900 font-semibold px-8 py-3 text-lg transition-all duration-300 hover:-translate-y-0.5">
                     View Our Work
                   </Button>
                 </Link>

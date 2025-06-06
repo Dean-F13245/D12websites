@@ -12,8 +12,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'Pricing', path: '/pricing' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Portfolio', path: '/portfolio' }
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -52,6 +51,11 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <Link to="/contact">
+              <Button variant="default" size="sm" className="bg-brand-600 hover:bg-brand-700 text-white">
+                Contact
+              </Button>
+            </Link>
             {isAdmin && (
               <Link to="/admin">
                 <Button variant="ghost" size="sm" className="text-gray-700 hover:text-brand-600 hover:bg-gray-50">
@@ -91,11 +95,18 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <Link 
+              to="/contact" 
+              className="block px-3 py-2 text-base font-medium text-white bg-brand-600 hover:bg-brand-700 rounded-md transition-colors duration-200"
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </Link>
             {isAdmin && (
-               <Link to="/admin" className="block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md text-gray-700 hover:text-brand-600 hover:bg-gray-50" onClick={() => setIsOpen(false)}>
-                 Admin Dashboard
-               </Link>
-             )}
+              <Link to="/admin" className="block px-3 py-2 text-base font-medium transition-colors duration-200 rounded-md text-gray-700 hover:text-brand-600 hover:bg-gray-50" onClick={() => setIsOpen(false)}>
+                Admin Dashboard
+              </Link>
+            )}
           </div>
         </div>
       )}

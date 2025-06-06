@@ -312,7 +312,7 @@ const Pricing = () => {
           <p className="text-xl text-blue-100 mb-8">
             Contact us today for a free consultation and custom quote for your project.
           </p>
-          <Link to="/contact">
+          <Link to="/contact#contact-form">
             <Button size="lg" className="bg-white text-brand-900 hover:bg-gray-100 font-semibold px-8 py-3 text-lg transition-all duration-300 hover:-translate-y-0.5">
               Get Your Free Quote
               <ArrowRight className="ml-2 w-5 h-5" />

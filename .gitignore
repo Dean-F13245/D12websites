@@ -1,6 +1,9 @@
 # Ignore environment variables file
 .env
 
+# Ignore clean clone directory
+dublin-web-craft-clean/
+
 # Logs
 logs
 *.log

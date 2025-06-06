@@ -253,7 +253,7 @@ const Index = () => {
           <p className="text-xl text-gray-600 mb-8">
             Let's build a stunning website that attracts customers and helps your business thrive.
           </p>
-          <Link to="/contact">
+          <Link to="/contact#contact-form">
             <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold shadow-lg px-8 py-3 text-lg transition-all duration-300 hover:-translate-y-0.5">
               Get a Free Quote
               <ArrowRight className="ml-2 w-5 h-5" />
